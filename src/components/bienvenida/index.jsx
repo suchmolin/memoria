@@ -25,7 +25,7 @@ const Bienvenida =  (props) => {
                 <h1 className="pt-9 xs:pt-2 text-center text-4xl md:text-5xl font-Lobster">Bienvenidos a Memoria by JoseS</h1>
             </header>
             <section className="h-3/6 flex items-center flex-col">
-                <img width="500px" className="" src="../../assets/Juego-de-memoria_01.png" alt="" />
+                <img width="500px" className="" src="/memoria/src/assets/Juego-de-memoria_01.png" alt="" />
                 <div className="flex w-full text-white">
                     <form action="" className="flex flex-row justify-center gap-6 w-full">
                         <label htmlFor="nombreJugador" className="block text-sm font-medium leading-6font-Lobster">Nombre</label>

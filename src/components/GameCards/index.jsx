@@ -22,7 +22,7 @@ const participantes = [
 participantes.sort(() => Math.random() - 0.5);
 
 const GameCards = (props) => {
-  const rutaIcon = "../../../public/iconos/";
+  const rutaIcon = "/memoria/src/assets/iconos/";
   const [first, setFirst] = React.useState(false);
   const [checking, setCheking] = React.useState(false);
   const [oneSelected, setOneSelected] = React.useState([]);

@@ -10,7 +10,7 @@
     border: solid 1px #000;
     border-radius: 3px;
     box-shadow: 2px 2px;
-    background-image: url('../../../public/iconos/lolicontransparente.png');
+    background-image: url('/memoria/src/assets/iconos/lolicontransparente.png');
     background-size: 100%;
     cursor: pointer;
 }
