@@ -1,6 +1,7 @@
 import React from "react";
 import GameCards from "../GameCards";
 import GameStatus from "../GameStatus"
+import FinalModal from "../FinalModal"
 
 
 const DashBoard = (props) => {
@@ -17,6 +18,7 @@ const DashBoard = (props) => {
         </header>
         <GameStatus />
         <GameCards nombre={nombre}/>
+        <FinalModal/>
     </>
  );
 }
