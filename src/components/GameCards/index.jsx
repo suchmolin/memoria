@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import Cronometro from "../Cronometro";
+import FinalModal from "../FinalModal";
 const participantes = [
   "wukong",
   "tristana",
@@ -31,6 +32,7 @@ const GameCards = (props) => {
   const [isGameOver, setIsGameOver] = React.useState(false);
   const [seconds, setSeconds] = React.useState(0);
   const [min, setMin] = React.useState(0);
+  const [posiciones, setPosiciones] = React.useState([])
 
   const selected = (e) => {
     if (!first) setFirst(true);
@@ -63,13 +65,7 @@ const GameCards = (props) => {
               "listaParticipantes",
               JSON.stringify(array)
             );
-            alert(
-              array.map(
-                (item) =>
-                  `${item.name} ${item.min}min ${item.sec}seg, con ${item.error} errores` +
-                  "\n"
-              )
-            );
+            setPosiciones(array)
           }
           setAciertos(aciertos + 1);
         }
@@ -79,34 +75,48 @@ const GameCards = (props) => {
   };
 
   return (
-    <div className="boxCards flex flex-wrap gap-5 justify-center rounded-md">
-      <Cronometro
-        errores={errores}
-        first={first}
-        isGameOver={isGameOver}
-        seconds={seconds}
-        setSeconds={setSeconds}
-        min={min}
-        setMin={setMin}
-      />
-      {participantes.map((carta, i) => {
-        return (
-          <div className="card" key={i}>
-            <img
-              className="oculto"
-              id={`img${i}`}
-              onClick={selected}
-              src={`${rutaIcon}${carta}.jpg`}
-              alt=""
-            />
-          </div>
-        );
-      })}
+    <>
+      <div className="boxCards flex flex-wrap gap-5 justify-center rounded-md">
+        <Cronometro
+          errores={errores}
+          first={first}
+          isGameOver={isGameOver}
+          seconds={seconds}
+          setSeconds={setSeconds}
+          min={min}
+          setMin={setMin}
+          />
+        {participantes.map((carta, i) => {
+          return (
+            <div className="card" key={i}>
+              <img
+                className="oculto"
+                id={`img${i}`}
+                onClick={selected}
+                src={`${rutaIcon}${carta}.jpg`}
+                alt=""
+                />
+            </div>
+          );
+        })}
 
-      <div className="w-full font-Lobster text-2xl mt-3 text-center">
-        <p>{aciertos} de 8</p>
+        <div className="w-full font-Lobster text-2xl mt-3 text-center">
+          <p>{aciertos} de 8</p>
+        </div>
       </div>
-    </div>
+      {
+        isGameOver &&
+         <FinalModal
+            nombre={props.nombre}
+            min={min}
+            seconds={seconds}
+            errores={errores}
+            isGameOver={isGameOver}
+            posiciones={posiciones}
+          /> 
+
+      }
+    </>
   );
 };
 

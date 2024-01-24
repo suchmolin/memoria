@@ -1,7 +1,7 @@
 import React from "react";
 import GameCards from "../GameCards";
 import GameStatus from "../GameStatus"
-import FinalModal from "../FinalModal"
+
 
 
 const DashBoard = (props) => {
@@ -10,15 +10,16 @@ const DashBoard = (props) => {
     } = props
  return(
     <>
-        <header className="  text-white mx-12 mt-10 relative h-32 ">
-            <h1 className="pt-9 xs:pt-2 text-center text-4xl md:text-5xl font-Lobster ">
-                <span className="capitalize ">Hola {nombre} </span>
+        <header className="  text-white mx-1 mt-10 relative h-12 ">
+            <h1 className="pt-2 xs:pt-1 text-center text-4xl md:text-5xl font-Lobster ">
+                <span className="capitalize ">{nombre} </span>
                 comenzamos a jugar
             </h1>
         </header>
         <GameStatus />
         <GameCards nombre={nombre}/>
-        <FinalModal/>
+        
+        
     </>
  );
 }

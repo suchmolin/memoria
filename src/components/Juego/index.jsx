@@ -3,6 +3,7 @@ import Bienvenida from "../Bienvenida/";
 import DashBoard from "../DashBoard/";
 
 
+
 const Juego = () => {
     const [nombre , setNombre] =  React.useState('');
     const [iniciarJuego , setIniciarJuego] =  React.useState(false);
@@ -22,6 +23,7 @@ const Juego = () => {
                     nombre={nombre}
                 />
             }
+            
         </>
 
     )
